@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${(props) => props.theme['background']};
+    background-color: ${(props) => props.theme['gray-300']};
     -webkit-font-smoothing: antialiased;
     display: flex;
     align-items: center;
@@ -21,7 +21,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body, input, textarea, button {
-    font-family: Ubuntu, sans-serif;
+    font-family: Popins, sans-serif;
     font-weight: 400;
     font-size: 1rem;
   }
