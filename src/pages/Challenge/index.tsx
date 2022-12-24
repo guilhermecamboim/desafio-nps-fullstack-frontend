@@ -6,16 +6,16 @@ import { X } from "phosphor-react";
 export function Challenge() {
   return (
     <S.ContainerChallenge>
-      <X size={51} className="X" />
+      <X size={22} className="X" />
       <S.Title>Avaliação de satisfação</S.Title>
       <S.Subtitle>
-        Em uma escala de 0 a 10, quanto você recomendaria a FireDev para um
-        amigo ou familiar?
+        Em uma escala de 0 a 10, quanto você <br /> recomendaria a FireDev para um
+        amigo <br /> ou familiar?
       </S.Subtitle>
       <S.Form>
         <Slider.Root
           className="SliderRoot"
-          defaultValue={[60]}
+          defaultValue={[0]}
           max={100}
           step={10}
         >
@@ -28,7 +28,7 @@ export function Challenge() {
         <S.TextArea placeholder="Deixe sua opnião e melhorias (opcional)" />
       </S.Form>
       <S.Required>* Obrigatório</S.Required>
-      <S.Button>Próximo</S.Button>
+      <S.Button>Próxima</S.Button>
     </S.ContainerChallenge>
   );
 }

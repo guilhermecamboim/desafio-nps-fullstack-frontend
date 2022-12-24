@@ -8,7 +8,7 @@ export default function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
-      <SubmittedChallenge />
+      <Challenge />
     </ThemeProvider>
   );
 }
