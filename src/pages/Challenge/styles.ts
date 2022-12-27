@@ -37,7 +37,7 @@ export const Subtitle = styled.p`
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
-export const Form = styled.form`
+export const Form = styled.div`
   position: relative;
   width: 100%;
   display: flex;
@@ -73,6 +73,7 @@ img {
   position: relative;
   flex-grow: 1;
   border-radius: 9999px;
+  cursor: pointer;
 }
 .SliderTrack[data-orientation='horizontal'] {
   height: 7.25px;
@@ -130,12 +131,12 @@ export const Required = styled.p`
   letter-spacing: -0.02em;
   position: relative;
   right: 140px;
-  bottom: 20px;
+  top: 0px;
 `;
 
 
 export const Button = styled.button`
-  background: ${(props) => props.theme["gray-200"]};
+  background: ${(props) => props.disabled ? props.theme["gray-200"] : props.theme["primaryGradient"]};
   width: 157.50px;
   height: 43.71px;
   padding: 10.8571px 14.4762px;
@@ -151,3 +152,10 @@ export const Button = styled.button`
   text-align: center;
   letter-spacing: -0.02em;
 `;
+
+export const ContainerButtonSubmit = styled.div `
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`
