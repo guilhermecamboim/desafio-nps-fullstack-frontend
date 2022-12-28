@@ -1,10 +1,11 @@
 import { ReactElement, useState } from "react";
+import { usePersistedState } from "./usePersistedState";
 
 export function useMultiStepForm(steps: ReactElement[]) {
-  const [currentStepIndex, setCurrentStepIndex] = useState(0)
+  const [currentStepIndex, setCurrentStepIndex] = usePersistedState('currentStepIndex', 0)
 
   function nextStep() {
-    setCurrentStepIndex(prevState => {
+    setCurrentStepIndex((prevState: number) => {
       if(prevState >= steps.length - 1) return prevState 
       return prevState + 1
     })

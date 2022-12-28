@@ -9,6 +9,7 @@ import { useMultiStepForm } from "../../hooks/useMultistepForm";
 import { FiredevForm } from "../../components/FiredevForm";
 import { PortalForm } from "../../components/PortalForm";
 import { ConsultancyForm } from "../../components/ConsultancyForm";
+import { usePersistedState } from "../../hooks/usePersistedState";
 
 type IFormData = {
   rangeFiredev: undefined | number[];
@@ -29,7 +30,7 @@ const defaultValue: IFormData = {
 };
 
 export function Challenge() {
-  const [data, setData] = useState(defaultValue);
+  const [data, setData] = usePersistedState('data', defaultValue);
   const { steps, step, currentStepIndex, nextStep, isLastStep, isPenultimate, goTo } =
     useMultiStepForm([
       <FiredevForm {...data} updateFields={updateFields} />,
@@ -39,7 +40,7 @@ export function Challenge() {
     ]);
 
   function updateFields(fields: Partial<FormData>) {
-    setData((prevData) => {
+    setData((prevData: any) => {
       return { ...prevData, ...fields };
     });
   }
