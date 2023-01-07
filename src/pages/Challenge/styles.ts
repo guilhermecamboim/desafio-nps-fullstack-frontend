@@ -129,9 +129,10 @@ export const Required = styled.p`
   font-size: 14.63px;
   text-align: center;
   letter-spacing: -0.02em;
-  position: relative;
-  right: 140px;
-  top: 0px;
+  
+  position: absolute;
+  bottom: 250px;
+  right: calc((100vw / 2) + 100px)  ;
 `;
 
 
@@ -144,6 +145,7 @@ export const Button = styled.button`
   cursor: pointer;
   border: none;
   margin-bottom: 20px;
+  margin-top: 30px;
   
   color: ${(props) => props.theme["white-200"]};
   font-style: normal;
