@@ -4,18 +4,19 @@ import rangeImg from "../../assets/Range.png";
 import { X } from "phosphor-react";
 import api from "../../services/api";
 import { FormEvent, ReactElement, useEffect, useState } from "react";
-import { SubmittedChallenge } from "../SubmittedChallenge";
+import { SubmittedForm } from "../SubmittedForm";
 import { useMultiStepForm } from "../../hooks/useMultistepForm";
-import { FiredevForm } from "../../components/FiredevForm";
-import { usePersistedState } from "../../hooks/usePersistedState";
+import { StepForm } from "../../components/StepForm";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 type IFormData = {
-  rangeSelected: undefined | number[];
+  rangeSelected: undefined | any;
   answerOfUser: string;
 };
 
 const defaultValue: IFormData = {
-  rangeSelected: [0],
+  rangeSelected: [0.1],
   answerOfUser: "",
 };
 
@@ -37,24 +38,41 @@ const dataMock = [
   },
 ];
 
-export function Challenge() {
+export function QuestionForm() {
   const [formData, setFormData] = useState(defaultValue);
   const [formDataByStep, setFormDataByStep] = useState<IFormData[]>([]);
   const [dataToMultiStepForm, setDataToMultiStepForm] = useState<
     ReactElement[]
   >([]);
-  const { step, nextStep, isLastStep, isPenultimate, isFirstStep, currentStepIndex } =
-    useMultiStepForm(dataToMultiStepForm);
+  const {
+    step,
+    nextStep,
+    isLastStep,
+    isPenultimate,
+    isFirstStep,
+  } = useMultiStepForm(dataToMultiStepForm);
+
+  function notifyUser() {
+    toast.error("Avalie de 0 a 10!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      progress: undefined,
+    });
+  }
 
   async function fetchData() {
     //const resultOfFetchData = await api.get('questions')
     //const dataToMultiStepForm = resultOfFetchData...
     const elementReactToMultiStepForm = dataMock.map((item) => {
-      return <FiredevForm required={item.required} question={item.question} />;
+      return <StepForm question={item.question} />;
     });
 
     setDataToMultiStepForm(
-      elementReactToMultiStepForm.concat(<SubmittedChallenge />)
+      elementReactToMultiStepForm.concat(<SubmittedForm />)
     );
   }
 
@@ -62,23 +80,27 @@ export function Challenge() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    console.log("Resultado da avaliação:", formDataByStep);
+  }, [isLastStep]);
+
   function updateFields(fields: Partial<IFormData>) {
     setFormData((prevData: IFormData) => {
       return { ...prevData, ...fields };
     });
   }
 
-  function onSubmit(event: FormEvent) {
+  function onNextStepOfNPSForm(event: FormEvent) {
     event.preventDefault();
-    if (!isPenultimate) {
-        setFormDataByStep((oldArray) => oldArray.concat(formData));
-        setFormData(defaultValue);
-        nextStep();
-      }
-      else {
-        console.log(formDataByStep);
-        nextStep();
-      }
+    if (!isLastStep && formData.rangeSelected[0] !== 0.1) {
+      setFormDataByStep((oldArray) => oldArray.concat(formData));
+      setFormData(defaultValue);
+      nextStep();
+    }
+
+    if (formData.rangeSelected[0] === 0.1) {
+      notifyUser();
+    }
   }
 
   return (
@@ -91,7 +113,7 @@ export function Challenge() {
       )}
       {step}
       {!isLastStep && (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onNextStepOfNPSForm}>
           <S.Form>
             <Slider.Root
               className="SliderRoot"
@@ -117,8 +139,10 @@ export function Challenge() {
                 updateFields({ answerOfUser: event.target.value })
               }
               value={formData.answerOfUser}
+              maxLength={400}
               required={isFirstStep ? true : false}
             />
+            {isFirstStep && <S.Required>* Obrigatório</S.Required>}
             <S.ContainerButtonSubmit>
               <S.Button type="submit">
                 {isPenultimate ? "Enviar" : "Próxima"}
@@ -127,6 +151,7 @@ export function Challenge() {
           </S.Form>
         </form>
       )}
+      <ToastContainer />
     </S.ContainerChallenge>
   );
 }

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const ContainerSubmittedChallenge = styled.div`
-  width: 472.55px;
-  height: 397.19px;
+export const ContainerSubmittedForm = styled.div`
+  width: 100%;
+  height: 100%;
   background: ${(props) => props.theme["white-200"]};
 
   display: flex;

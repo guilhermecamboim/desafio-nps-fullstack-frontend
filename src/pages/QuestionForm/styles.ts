@@ -108,6 +108,7 @@ export const TextArea = styled.textarea`
   width: 365.63px;
   height: 88.67px;
   border-radius: 5.625px;
+  margin-bottom: -1rem;
 
   position: relative;
   bottom: 25px;
@@ -123,21 +124,29 @@ export const TextArea = styled.textarea`
 
 
 export const Required = styled.p`
+  width: 100%;
+  height: auto;
+  text-align: left;
+  padding-left: 1rem;
+
   color: ${(props) => props.theme["primaryPink"]};
   font-style: normal;
   font-weight: 400;
   font-size: 14.63px;
-  text-align: center;
   letter-spacing: -0.02em;
-  
-  position: absolute;
-  bottom: 250px;
-  right: calc((100vw / 2) + 100px)  ;
+
+  @media (max-width: 1440px) {
+    bottom: 110px;
+  }
+
+  @media (max-width: 1024px) {
+    bottom: 80px;
+  }
 `;
 
 
 export const Button = styled.button`
-  background: ${(props) => props.disabled ? props.theme["gray-200"] : props.theme["primaryGradient"]};
+  background: ${(props) => props.disabled ? props.theme['gray-200'] : props.theme['primaryGradient']};
   width: 157.50px;
   height: 43.71px;
   padding: 10.8571px 14.4762px;
