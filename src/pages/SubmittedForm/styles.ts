@@ -17,6 +17,15 @@ export const ContainerSubmittedForm = styled.div`
     top: 21px;
     cursor: pointer;
   }
+
+  @media (max-width: 428px) {
+    .X {
+      width: 19px;
+      height: 19px;
+      left: 138px;
+    }
+  }
+
 `;
 
 export const SuccessImage = styled.img`
@@ -32,6 +41,13 @@ export const Title = styled.h1`
   height: 43.69px;
   margin-top: 23.5px;
   color: ${(props) => props.theme["black"]};
+
+  @media (max-width: 428px) {
+    width: 100%;
+    padding: 0 54px;
+    font-size: 18px;
+    line-height: 26px;
+  }
 `;
 
 export const Subtitle = styled.p`
@@ -44,6 +60,14 @@ export const Subtitle = styled.p`
   font-size: 18px;
   letter-spacing: -0.02em;
   margin-top: 23.5px;
+
+  @media (max-width: 428px) {
+    width: 100%;
+    padding: 0 50px;
+    font-size: 12px;
+    line-height: 22px;
+  }
+
 `;
 
 export const Button = styled.button`
@@ -63,4 +87,11 @@ export const Button = styled.button`
   font-size: 18px;
   text-align: center;
   letter-spacing: -0.02em;
+
+  @media (max-width: 428px) {
+    width: 112px;
+    height: 38px;
+    font-size: 14px;
+    line-height: 21px;
+  }
 `;

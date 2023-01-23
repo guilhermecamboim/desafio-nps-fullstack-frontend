@@ -104,7 +104,7 @@ export function QuestionForm() {
   }
 
   return (
-    <S.ContainerChallenge>
+    <S.ContainerChallenge isLastStep={isLastStep}>
       {!isLastStep && (
         <>
           <X size={22} className="X" />
@@ -144,7 +144,7 @@ export function QuestionForm() {
             />
             {isFirstStep && <S.Required>* Obrigatório</S.Required>}
             <S.ContainerButtonSubmit>
-              <S.Button type="submit">
+              <S.Button type="submit" availableToNext={formData.rangeSelected[0] !== 0.1}>
                 {isPenultimate ? "Enviar" : "Próxima"}
               </S.Button>
             </S.ContainerButtonSubmit>
