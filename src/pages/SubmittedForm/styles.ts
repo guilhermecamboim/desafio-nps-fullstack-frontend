@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ContainerSubmittedForm = styled.div`
   width: 100%;
   height: 100%;
-  background: ${(props) => props.theme["white-200"]};
+  background: ${props => props.theme['white-200']};
 
   display: flex;
   align-items: center;
@@ -25,13 +25,12 @@ export const ContainerSubmittedForm = styled.div`
       left: 138px;
     }
   }
-
 `;
 
 export const SuccessImage = styled.img`
   width: 55px;
   height: 55px;
-`
+`;
 
 export const Title = styled.h1`
   font-style: normal;
@@ -40,7 +39,7 @@ export const Title = styled.h1`
   width: 320.62px;
   height: 43.69px;
   margin-top: 23.5px;
-  color: ${(props) => props.theme["black"]};
+  color: ${props => props.theme['black']};
 
   @media (max-width: 428px) {
     width: 100%;
@@ -51,7 +50,7 @@ export const Title = styled.h1`
 `;
 
 export const Subtitle = styled.p`
-  color: ${(props) => props.theme["black"]};
+  color: ${props => props.theme['black']};
   width: 341.13px;
   height: 71.49px;
   line-height: 30px;
@@ -67,12 +66,11 @@ export const Subtitle = styled.p`
     font-size: 12px;
     line-height: 22px;
   }
-
 `;
 
 export const Button = styled.button`
-  background: ${(props) => props.theme["primaryGradient"]};
-  width: 157.50px;
+  background: ${props => props.theme['primaryGradient']};
+  width: 157.5px;
   height: 47.66px;
   margin-top: 39px;
   margin-bottom: 31px;
@@ -80,8 +78,8 @@ export const Button = styled.button`
   border: none;
   border-radius: 2px;
   cursor: pointer;
-  
-  color: ${(props) => props.theme["white-200"]};
+
+  color: ${props => props.theme['white-200']};
   font-style: normal;
   font-weight: 600;
   font-size: 18px;

@@ -1,7 +1,7 @@
-import { ThemeProvider } from "styled-components";
-import { QuestionForm } from "./pages/QuestionForm";
-import { GlobalStyle } from "./styles/global";
-import { defaultTheme } from "./styles/themes/default";
+import { ThemeProvider } from 'styled-components';
+import { QuestionForm } from './pages/QuestionForm';
+import { GlobalStyle } from './styles/global';
+import { defaultTheme } from './styles/themes/default';
 
 export default function App() {
   return (

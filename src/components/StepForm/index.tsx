@@ -1,4 +1,4 @@
-import * as S from "../../pages/QuestionForm/styles";
+import * as S from '../../pages/QuestionForm/styles';
 
 type IFiredevData = {
   question: string;
