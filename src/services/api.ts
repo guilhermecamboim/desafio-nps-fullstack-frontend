@@ -1,10 +1,8 @@
-import axios from 'axios'
+import axios from 'axios';
 
-const api = axios.create({
-  baseURL: 'https://pokeapi.co/api/v2/pokemon',
+export const api = axios.create({
+  baseURL: 'http://localhost:8080',
   headers: {
-    AcessControllAllowOrigin: true,
-  }
-})
-
-export default api
+    AccessControlAllowOrigin: true,
+  },
+});
