@@ -32,15 +32,42 @@
     "@types/react-dom": "^18.0.8",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.49.0",
-    "@vitejs/plugin-react": "^2.2.0",
-    "eslint": "^8.33.0",
+    "@vitejs/plugin-react": "^5.2.0",
+    "eslint": "^8.57.1",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.1",
     "jest": "^30.5.2",
     "prettier": "^2.8.3",
     "ts-node": "^10.9.1",
-    "typescript": "^4.6.4",
-    "vite": "^3.2.3"
+    "typescript": "^5.9.3",
+    "vite": "^8.3.8"
+  },
+  "overrides": {
+    "@jest/reporters": {
+      "glob": {
+        ".": "^14.0.2",
+        "minimatch": "^11.0.1"
+      }
+    },
+    "jest-config": {
+      "glob": {
+        ".": "^14.0.2",
+        "minimatch": "^11.0.1"
+      }
+    },
+    "jest-runtime": {
+      "glob": {
+        ".": "^14.0.2",
+        "minimatch": "^11.0.1"
+      }
+    },
+    "test-exclude": {
+      "glob": {
+        ".": "^14.0.2",
+        "minimatch": "^11.0.1"
+      },
+      "minimatch": "^11.0.1"
+    }
   }
 }
